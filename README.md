@@ -5,4 +5,5 @@ Cool project in which I've followed ProAndroidDevDaggerKotlin - https://proandro
 
 Used Kotlin 1.2.10 and Dagger 2.14.1
 
-![](https://im2.ezgif.com/tmp/ezgif-2-58fa0fe51c.gif)
+Gif Demo - http://gph.is/2G7tYMW
+
