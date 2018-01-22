@@ -1,4 +1,4 @@
-package com.example.petrumugurel.proandroiddevdaggerkotlin
+package com.example.petrumugurel.proandroiddevdaggerkotlin.di.Scopes
 
 import javax.inject.Scope
 

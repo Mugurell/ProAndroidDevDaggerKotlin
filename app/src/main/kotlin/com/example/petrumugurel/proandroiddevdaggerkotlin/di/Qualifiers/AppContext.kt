@@ -1,4 +1,4 @@
-package com.example.petrumugurel.proandroiddevdaggerkotlin
+package com.example.petrumugurel.proandroiddevdaggerkotlin.di.Qualifiers
 
 import javax.inject.Qualifier
 

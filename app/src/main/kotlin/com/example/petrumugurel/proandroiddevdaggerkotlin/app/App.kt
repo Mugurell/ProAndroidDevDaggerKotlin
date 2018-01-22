@@ -1,7 +1,8 @@
-package com.example.petrumugurel.proandroiddevdaggerkotlin
+package com.example.petrumugurel.proandroiddevdaggerkotlin.app
 
 import android.app.Activity
 import android.app.Application
+import com.example.petrumugurel.proandroiddevdaggerkotlin.di.components.DaggerAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
