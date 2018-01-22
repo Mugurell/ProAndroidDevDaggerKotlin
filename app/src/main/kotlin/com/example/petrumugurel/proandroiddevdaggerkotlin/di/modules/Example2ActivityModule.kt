@@ -6,11 +6,11 @@ import com.example.petrumugurel.proandroiddevdaggerkotlin.usecase.example2.Examp
 import com.example.petrumugurel.proandroiddevdaggerkotlin.usecase.example2.Example2Activity
 import com.example.petrumugurel.proandroiddevdaggerkotlin.usecase.example2.Example2BFragment
 import com.example.petrumugurel.proandroiddevdaggerkotlin.di.Scopes.PerActivity
-import com.example.petrumugurel.proandroiddevdaggerkotlin.di.components.Example2AFragmentSubcomponent
-import com.example.petrumugurel.proandroiddevdaggerkotlin.di.components.Example2BFragmentSubcomponent
+import com.example.petrumugurel.proandroiddevdaggerkotlin.di.Scopes.PerFragment
 import dagger.Binds
 import dagger.Module
 import dagger.android.AndroidInjector
+import dagger.android.ContributesAndroidInjector
 import dagger.android.FragmentKey
 import dagger.multibindings.IntoMap
 
@@ -19,24 +19,17 @@ import dagger.multibindings.IntoMap
  */
 
 
-@Module(includes = [BaseActivityModule::class],
-        subcomponents = [
-            Example2AFragmentSubcomponent::class,
-            Example2BFragmentSubcomponent::class])
+@Module(includes = [BaseActivityModule::class])
 abstract class Example2ActivityModule {
     @Binds
     @PerActivity
     abstract fun provideActivity(example2Activity : Example2Activity): Activity
 
-    @Binds
-    @IntoMap
-    @FragmentKey(Example2AFragment::class)
-    abstract fun provideEx2AFragmentInjectorFactory(builder : Example2AFragmentSubcomponent.Builder)
-        : AndroidInjector.Factory<out Fragment>
+    @PerFragment
+    @ContributesAndroidInjector(modules = [Example2AFragmentModule::class])
+    abstract fun provideEx2AFragmentInjectorFactory(): Example2AFragment
 
-    @Binds
-    @IntoMap
-    @FragmentKey(Example2BFragment::class)
-    abstract fun provideEx2BFragmentInjectorFactory(builder : Example2BFragmentSubcomponent.Builder)
-        : AndroidInjector.Factory<out Fragment>
+    @PerFragment
+    @ContributesAndroidInjector(modules = [Example2BFragmentModule::class])
+    abstract fun provideEx2BFragmentInjectorFactory(): Example2BFragment
 }
